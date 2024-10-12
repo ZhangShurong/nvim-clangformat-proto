@@ -1,7 +1,9 @@
 local M = {}
 
 function M.format()
-  local clang_format_config = [[
+	print("Starting the formatting process...")
+
+	local clang_format_config = [[
 {
     Language: Proto,
     BasedOnStyle: Google,
@@ -10,11 +12,22 @@ function M.format()
 }
 ]]
 
-  local path = vim.fn.tempname() .. ".clang-format"
-  vim.fn.writefile(vim.split(clang_format_config, "\n"), path)
+	local path = vim.fn.tempname() .. ".clang-format"
+	vim.fn.writefile(vim.split(clang_format_config, "\n"), path)
 
-  vim.api.nvim_command("silent %!clang-format --style=" .. path)
-  vim.fn.delete(path)
+	print("Configuration file created at: " .. path)
+	print("Executing clang-format...")
+
+	vim.api.nvim_command("silent %!clang-format --style=" .. path)
+
+	if vim.v.shell_error ~= 0 then
+		print("Error during formatting.")
+	else
+		print("Formatting completed successfully.")
+	end
+
+	vim.fn.delete(path)
+	print("Temporary files cleaned up.")
 end
 
 return M
