@@ -22,7 +22,8 @@ function M.format()
 	M.debug_info("Configuration file created at: " .. path)
 	M.debug_info("Executing clang-format...")
 
-	vim.api.nvim_command("silent %!clang-format --style=" .. path)
+	--vim.api.nvim_command("silent %!clang-format --style=" .. path)
+	vim.api.nvim_command('silent %!clang-format --style="' .. path .. '"')
 
 	if vim.v.shell_error ~= 0 then
 		M.debug_info("Error during formatting.")
