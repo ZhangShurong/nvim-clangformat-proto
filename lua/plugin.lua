@@ -8,7 +8,6 @@ function M.format()
 	M.debug_info("Starting the formatting process...")
 
 	local clang_format_config = [[
-{
 BasedOnStyle: Google
 IndentWidth: 4
 ColumnLimit: 100
@@ -18,7 +17,8 @@ SpaceBeforeParens: Never
 BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBraces: Attach
-PenaltyReturnTypeOnItsOwnLine: 200}
+PenaltyReturnTypeOnItsOwnLine: 200
+
 ]]
 
 	local path = vim.fn.tempname() .. ".clang-format"
