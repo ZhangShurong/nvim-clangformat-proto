@@ -9,11 +9,16 @@ function M.format()
 
 	local clang_format_config = [[
 {
-    Language: Proto,
-    BasedOnStyle: Google,
-    AlignConsecutiveAssignments: true,
-    AllowShortFunctionsOnASingleLine: None
-}
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 100
+AlignConsecutiveAssignments: true
+AllowShortBlocksOnASingleLine: false
+SpaceBeforeParens: Never
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Attach
+PenaltyReturnTypeOnItsOwnLine: 200}
 ]]
 
 	local path = vim.fn.tempname() .. ".clang-format"
