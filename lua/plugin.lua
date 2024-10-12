@@ -18,6 +18,7 @@ BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBraces: Attach
 PenaltyReturnTypeOnItsOwnLine: 200
+AllowShortEnumsOnASingleLine: false
 
 ]]
 
@@ -36,7 +37,7 @@ PenaltyReturnTypeOnItsOwnLine: 200
 		M.debug_info("Formatting completed successfully.")
 	end
 
-	--	vim.fn.delete(path)
+	vim.fn.delete(path)
 	M.debug_info("Temporary files cleaned up.")
 end
 
